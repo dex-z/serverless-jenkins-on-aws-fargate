@@ -90,7 +90,7 @@ jobs:
                             script {
                                 sh "echo this was executed on non spot instance"
                             }
-                            sh 'sleep 120'
+                            sh 'sleep 10'
                             sh 'echo sleep is done'
                         }
                     }
@@ -117,7 +117,7 @@ jobs:
                             script {
                                 sh "echo this was executed on a spot instance"
                             }
-                            sh 'sleep 120'
+                            sh 'sleep 10'
                             sh 'echo sleep is done'
                         }
                     }
