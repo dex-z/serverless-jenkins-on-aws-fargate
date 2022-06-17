@@ -28,17 +28,17 @@ variable vpc_id {
 variable efs_subnet_ids {
   type        = list(string)
   description = "A list of subnets to attach to the EFS mountpoint. Should be private"
-#   default = ["subnet-5d12c221","subnet-2178df6d","subnet-29452043"]
+  # default = ["subnet-0647b44e6eddb78f4","subnet-08ab580b88ca2f484"]
 }
 
 variable jenkins_controller_subnet_ids {
   type        = list(string)
   description = "A list of subnets for the jenkins controller fargate service. Should be private"
-#   default = ["subnet-5d12c221","subnet-2178df6d","subnet-29452043"]
+  # default = ["subnet-0647b44e6eddb78f4","subnet-08ab580b88ca2f484"] 
 }
 
 variable alb_subnet_ids {
   type        = list(string)
   description = "A list of subnets for the Application Load Balancer"
-#   default = ["subnet-5d12c221","subnet-2178df6d","subnet-29452043"]
+  # default = ["subnet-02f823730ba712af4","subnet-076782d535960e13e"]
 }

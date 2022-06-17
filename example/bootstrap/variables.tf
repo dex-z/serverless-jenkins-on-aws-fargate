@@ -1,7 +1,7 @@
 variable state_bucket_name {
   type    = string
   # A random bucket name by default
-  default = null
+  default = "jenkins-fargate-demo" 
 }
 
 variable state_lock_table_name {

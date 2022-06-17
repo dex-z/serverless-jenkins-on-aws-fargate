@@ -50,12 +50,13 @@ EOF
 resource "null_resource" "build_docker_image" {
   triggers = {
      src_hash = file("${path.module}/docker/files/jenkins.yaml.tpl")
+    #  always_run = timestamp()
   }
   depends_on = [null_resource.render_template]
   provisioner "local-exec" {
     command = <<EOF
 docker login -u AWS -p ${data.aws_ecr_authorization_token.token.password} ${local.ecr_endpoint} && \
-docker build -t ${aws_ecr_repository.jenkins_controller.repository_url}:latest ${path.module}/docker/ && \
+docker buildx build --platform=linux/amd64 -t ${aws_ecr_repository.jenkins_controller.repository_url}:latest ${path.module}/docker/ && \
 docker push ${aws_ecr_repository.jenkins_controller.repository_url}:latest
 EOF
   }
